@@ -1,0 +1,18 @@
+---
+import { type ISkill } from '@/constants/about/skills'
+
+import SkillTechnology from '@/components/about/skill/SkillTechnology.astro'
+
+interface Props {
+	skill: ISkill
+}
+
+const { skill } = Astro.props
+---
+
+<article class="border-border_light dark:border-border_dark rounded-2xl border-2 p-6">
+	<h3 class="text-text-title_light dark:text-text-title_dark mb-8 text-center text-2xl font-bold lg:text-3xl">{skill.name}</h3>
+	<ul class="grid grid-cols-3 gap-6">
+		{skill.technologies.map((technology) => <SkillTechnology technology={technology} />)}
+	</ul>
+</article>

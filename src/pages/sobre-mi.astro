@@ -1,0 +1,84 @@
+---
+import { Image } from 'astro:assets'
+
+import Layout from '@/layouts/Layout.astro'
+
+import BookIcon from '@/components/icons/Book.svg'
+import BriefcaseIcon from '@/components/icons/Briefcase.svg'
+import ChalkboardIcon from '@/components/icons/Chalkboard.svg'
+import CodeIcon from '@/components/icons/Code.svg'
+
+import Project from '@/components/about/project/Project.astro'
+import Experience from '@/components/about/experience/Experience.astro'
+import Training from '@/components/about/training/Training.astro'
+import Skill from '@/components/about/skill/Skill.astro'
+import SocialLinks from '@/components/about/SocialLinks.astro'
+
+const title = 'Sobre mi - RadisDev'
+const description =
+	'¡Hola! Soy Raúl, desarrollador de software. Descubre contenido sobre desarrollo web, tecnología y más para alimentar tu curiosidad por la informática.'
+---
+
+<Layout
+	title={title}
+	description={description}
+	openGraph={{
+		title: title,
+		description: description,
+		image: { url: '/og.png' },
+	}}
+>
+	<h1 class="text-text-title_light dark:text-text-title_dark mb-6 text-4xl font-bold sm:mb-10 sm:text-5xl">
+		¡Hola!
+		<span class="animation-emoji-hand -ml-1">👋</span>
+	</h1>
+	<section class="flex flex-col items-center justify-center gap-8 md:flex-row">
+		<div class="order-2 md:order-1 [&>p]:mb-6 [&>p]:text-justify [&>p>strong]:font-normal [&>p>strong]:text-black dark:[&>p>strong]:text-white">
+			<p>Soy Raúl, desarrollador de software con pasión por la tecnología y el aprendizaje constante.</p>
+			<p>
+				Desde muy pequeñito, la programación se convirtió en mi gran pasión. Recuerdo con emoción mis primeros pasos en el mundo de la programación,
+				<strong>trasteando con C++ en un Arduino </strong> que mi padre me regaló.
+			</p>
+			<p>
+				Una de las cosas que más me anima es aprender. ¡Es como si mi sed de conocimiento fuera insaciable! Me lancé a
+				<strong>ser autodidacta, devorando libros y tutoriales </strong> que encontraba en mi camino.
+			</p>
+			<SocialLinks />
+		</div>
+		<Image
+			src="/images/about/me.webp"
+			width={958}
+			height={1430}
+			alt="Fotografia de un joven, que es Raul, apoyado sobre una mesa en un ambiente con luces de neón moradas y azules. Fondo futurista con señales y pantallas iluminadas."
+			class="border-border_light dark:border-border_dark order-1 aspect-square h-full w-64 rounded-2xl border-2 object-cover md:order-2 lg:w-64"
+		/>
+	</section>
+	<section id="experiencia">
+		<h2 class="text-text-title_light dark:text-text-title_dark mt-10 mb-6 flex items-center gap-x-3 text-2xl font-bold sm:text-3xl">
+			<BriefcaseIcon class="fill-fill_light dark:fill-fill_dark size-6" />
+			Experiencia laboral
+		</h2>
+		<Experience />
+	</section>
+	<section id="formacion">
+		<h2 class="text-text-title_light dark:text-text-title_dark mt-10 mb-6 flex items-center gap-x-3 text-2xl font-bold sm:text-3xl">
+			<BookIcon class="fill-fill_light dark:fill-fill_dark size-6" />
+			Formacion
+		</h2>
+		<Training />
+	</section>
+	<section id="habilidades">
+		<h2 class="text-text-title_light dark:text-text-title_dark mt-10 mb-6 flex items-center gap-x-3 text-2xl font-bold sm:text-3xl">
+			<CodeIcon class="fill-fill_light dark:fill-fill_dark size-6" />
+			Habilidades tecnicas
+		</h2>
+		<Skill />
+	</section>
+	<section id="proyectos">
+		<h2 class="text-text-title_light dark:text-text-title_dark mt-10 mb-6 flex items-center gap-x-3 text-2xl font-bold sm:text-3xl">
+			<ChalkboardIcon class="fill-fill_light dark:fill-fill_dark size-6" />
+			Proyectos
+		</h2>
+		<Project />
+	</section>
+</Layout>

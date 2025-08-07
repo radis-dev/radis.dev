@@ -1,0 +1,8 @@
+---
+import { skills } from '@/constants/about/skills'
+import SkillItem from '@/components/about/skill/SkillItem.astro'
+---
+
+<section class="grid gap-6 lg:grid-cols-2 lg:grid-rows-2">
+	{skills.filter((skill) => skill.technologies.length).map((skill) => <SkillItem skill={skill} />)}
+</section>

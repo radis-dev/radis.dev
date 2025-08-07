@@ -1,0 +1,22 @@
+---
+import { type ITag } from '@/constants/about/projects'
+
+interface Props {
+	tags: ITag[]
+}
+
+const { tags } = Astro.props
+---
+
+<ul class="mb-2 flex flex-row gap-x-2">
+	{
+		tags.map((tag) => (
+			<li>
+				<span class={`flex gap-x-2 rounded-full text-xs ${tag.class} px-2 py-1`}>
+					<tag.icon class="size-4" />
+					{tag.name}
+				</span>
+			</li>
+		))
+	}
+</ul>

@@ -1,0 +1,17 @@
+---
+import { type IExperienceLocation } from '@/constants/about/experiences'
+
+interface Props {
+	location: IExperienceLocation | undefined
+}
+
+const { location } = Astro.props
+---
+
+{
+	location && (
+		<span class="text-sm text-gray-600/80 dark:text-white/80">
+			{location.city}, {location.country} · {location.type}
+		</span>
+	)
+}

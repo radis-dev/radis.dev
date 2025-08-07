@@ -1,0 +1,20 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import Error from '@/components/Error.astro'
+
+const title = 'Pagina no encontrada - RadisDev'
+const description =
+	'¡Hola! Soy Raúl, desarrollador de software. Descubre contenido sobre desarrollo web, tecnología y más para alimentar tu curiosidad por la informática.'
+---
+
+<Layout
+	title={title}
+	description={description}
+	openGraph={{
+		title: title,
+		description: description,
+		image: { url: '/images/og-image.png' },
+	}}
+>
+	<Error error="418" message="Soy una tetera" contextMessage="En realidad, no se ha encontrado la página, pero el error 404 es demasiado aburrido" />
+</Layout>

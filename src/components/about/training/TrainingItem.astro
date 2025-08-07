@@ -1,0 +1,22 @@
+---
+import { type ITraining } from '@/constants/about/trainings'
+import TrainingDuration from '@/components/about/training/TrainingDuration.astro'
+
+const { title, college, description, startDate, endDate } = Astro.props as ITraining
+---
+
+<li
+	class="relative ml-12 grid pb-10 before:absolute before:left-[-35px] before:block before:h-full before:border-l-2 before:border-black/20 before:content-[''] md:grid-cols-5 md:gap-10 md:pb-6 dark:before:border-white/15"
+>
+	<div class="relative pb-8 md:col-span-2">
+		<div class="sticky top-0">
+			<span class="text-text-title_light dark:text-text-title_dark absolute -left-[42px] rounded-full text-5xl" aria-hidden="true">•</span>
+			<h3 class="text-text-title_light dark:text-text-title_dark text-xl font-bold">{title}</h3>
+			<h4 class="mb-1 text-xl font-semibold">{college}</h4>
+			<TrainingDuration startDate={startDate} endDate={endDate} />
+		</div>
+	</div>
+	<p class="relative flex flex-col gap-2 md:col-span-3">
+		{description}
+	</p>
+</li>

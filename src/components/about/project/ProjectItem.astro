@@ -1,0 +1,51 @@
+---
+import { Image } from 'astro:assets'
+
+import { type IProject } from '@/constants/about/projects'
+
+import ProjectTags from '@/components/about/project/ProjectTags.astro'
+
+import GithubIcon from '@/components/icons/Github.svg'
+import LinkIcon from '@/components/icons/Link.svg'
+
+const { title, description, tags, link, github, image } = Astro.props as IProject
+---
+
+<article class="flex flex-col space-y-8 space-x-0 md:flex-row md:space-y-0 md:space-x-8">
+	<header class="w-full md:w-1/2">
+		<Image src={image.url} alt={image.alt} width={1920} height={1080} class="border-border_light dark:border-border_dark rounded-2xl border-2" />
+	</header>
+	<main class="w-full md:w-1/2 md:max-w-lg">
+		<h3 class="text-text-title_light dark:text-text-title_dark text-2xl font-bold">{title}</h3>
+		<div class="mt-2 flex flex-wrap">
+			<ProjectTags tags={tags} />
+			<p class="mt-4">
+				{description}
+			</p>
+			<div class="mt-4 flex items-end justify-start gap-x-4">
+				{
+					link && (
+						<a
+							href={link}
+							class="dark:hover:bg-bg_body_hover_dark hover:bg-bg_body_hover_light border-border_light dark:border-border_dark bg-bg_light dark:bg-bg_dark flex items-center justify-center gap-x-2 rounded-lg border-2 px-4 py-2"
+						>
+							<LinkIcon class="fill-fill_light dark:fill-fill_dark size-4" />
+							Ver
+						</a>
+					)
+				}
+				{
+					github && (
+						<a
+							href={github}
+							class="dark:hover:bg-bg_body_hover_dark hover:bg-bg_body_hover_light border-border_light dark:border-border_dark bg-bg_light dark:bg-bg_dark flex items-center justify-center gap-x-2 rounded-lg border-2 px-4 py-2"
+						>
+							<GithubIcon class="fill-fill_light dark:fill-fill_dark size-4" />
+							Codigo
+						</a>
+					)
+				}
+			</div>
+		</div>
+	</main>
+</article>

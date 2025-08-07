@@ -1,0 +1,92 @@
+---
+import SunIcon from '@/components/icons/Sun.svg'
+import MoonIcon from '@/components/icons/Moon.svg'
+import DesktopIcon from '@/components/icons/Desktop.svg'
+
+interface ITheme {
+	name: string
+	class: string
+	icon: any
+}
+
+const THEMES: ITheme[] = [
+	{
+		name: 'light',
+		class: 'size-5 fill-yellow-500',
+		icon: SunIcon,
+	},
+	{
+		name: 'dark',
+		class: 'size-5 fill-blue-800',
+		icon: MoonIcon,
+	},
+	{
+		name: 'system',
+		class: 'size-5 fill-gray-700 dark:fill-gray-200',
+		icon: DesktopIcon,
+	},
+]
+---
+
+<button
+	id="theme-toggle-btn"
+	aria-label="Cambiar tema entre claro, oscuro y sistema"
+	class="mr-1 ml-1 flex transition sm:hover:scale-125"
+	transition:persist
+>
+	{THEMES.map((theme) => <theme.icon class={`theme-toggle-icon ${theme.class}`} id={theme.name} />)}
+</button>
+
+<script is:inline>
+	const themes = ['light', 'dark', 'system']
+	const matchMedia = window.matchMedia('(prefers-color-scheme: dark)')
+
+	let removeThemeChange = null
+
+	const getTheme = () => {
+		if (typeof localStorage !== 'undefined') {
+			return localStorage.getItem('theme') ?? 'system'
+		}
+
+		return matchMedia.matches ? 'dark' : 'light'
+	}
+
+	const updateIcon = (theme) => {
+		document.querySelectorAll('.theme-toggle-icon').forEach((element) => {
+			element.style.display = element.id === theme ? 'block' : 'none'
+		})
+	}
+
+	const updateTheme = () => {
+		if (removeThemeChange != null) {
+			removeThemeChange()
+		}
+
+		matchMedia.addEventListener('change', updateTheme)
+		removeThemeChange = () => {
+			matchMedia.removeEventListener('change', updateTheme)
+		}
+
+		const theme = getTheme()
+		const isDark = theme === 'dark' || (theme === 'system' && matchMedia.matches)
+
+		updateIcon(theme)
+		document.documentElement.classList[isDark ? 'add' : 'remove']('dark')
+	}
+
+	updateTheme()
+
+	document.getElementById('theme-toggle-btn').addEventListener('click', () => {
+		const currentThemeIndex = themes.indexOf(getTheme())
+
+		const nextThemeIndex = (currentThemeIndex + 1) % themes.length
+		const nextTheme = themes[nextThemeIndex]
+
+		localStorage.setItem('theme', nextTheme)
+		updateTheme()
+	})
+
+	document.addEventListener('astro:after-swap', () => {
+		updateTheme()
+	})
+</script>

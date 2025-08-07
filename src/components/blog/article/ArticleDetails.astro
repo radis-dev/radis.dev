@@ -1,0 +1,45 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { Image } from 'astro:assets'
+
+import FormattedDate from '@/components/FormattedDate.astro'
+
+interface Props {
+	article: CollectionEntry<'blog'>
+}
+
+const { article } = Astro.props
+---
+
+<header class="flex flex-col gap-y-6">
+	<h1 class="text-text-title_light dark:text-text-title_dark text-center text-4xl font-bold">{article.data.title}</h1>
+	<ul class="flex flex-row flex-wrap justify-center gap-6 font-medium">
+		<li class="flex flex-row items-center">
+			<Image
+				alt="Imagen de redactor"
+				class="border-border_light dark:border-border_dark mr-2 h-6 w-6 rounded-full border-2"
+				height="50"
+				width="50"
+				src="/images/about/me.webp"
+			/>
+			<p>Raul De Diego Diaz</p>
+		</li>
+		<li class="flex flex-row items-center">
+			<p>
+				📅 <FormattedDate date={article.data.publishedAt} />
+			</p>
+		</li>
+		<li class="flex flex-row items-center">
+			<p>
+				📁 {article.data.category}
+			</p>
+		</li>
+	</ul>
+	<Image
+		src={`/images/blog/${article.id}/thumbnail.webp`}
+		width="1920"
+		height="1080"
+		alt={article.data.thumbnail.alt}
+		class="border-border_light dark:border-border_dark w-full rounded-lg border-2"
+	/>
+</header>

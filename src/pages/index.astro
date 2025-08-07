@@ -1,0 +1,24 @@
+---
+import Layout from '@/layouts/Layout.astro'
+
+const title = 'RadisDev - Programador'
+const description =
+	'¡Hola! Soy Raúl, desarrollador de software. Descubre contenido sobre desarrollo web, tecnología y más para alimentar tu curiosidad por la informática.'
+---
+
+<Layout
+	title={title}
+	description={description}
+	openGraph={{
+		title: title,
+		description: description,
+		image: { url: '/og.png' },
+	}}
+>
+	<section class="my-auto pb-8">
+		<h1 class="text-text-title_light dark:text-text-title_dark mb-3 text-5xl font-bold sm:text-7xl md:text-8xl lg:text-9xl">RadisDev</h1>
+		<div class="flex w-[80%] flex-col sm:text-xl md:w-[85%]">
+			<p>Apasionado por el desarrollo de software</p>
+		</div>
+	</section>
+</Layout>

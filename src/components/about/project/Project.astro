@@ -1,0 +1,12 @@
+---
+import { projects } from '@/constants/about/projects'
+import ProjectItem from '@/components/about/project/ProjectItem.astro'
+---
+
+<div class="flex flex-col gap-y-6">
+	{
+		projects.map(({ title, description, tags, image, link, github }) => (
+			<ProjectItem title={title} description={description} tags={tags} image={image} link={link} github={github} />
+		))
+	}
+</div>

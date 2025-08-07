@@ -1,0 +1,76 @@
+@import 'tailwindcss';
+
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+	--color-bg_light: #ffffff;
+	--color-bg_dark: #191919;
+	--color-bg_body_light: #f9fafb;
+	--color-bg_body_dark: #111111;
+	--color-bg_body_hover_light: #f2f3f5;
+	--color-bg_body_hover_dark: #222222;
+	--color-text_light: #282d34;
+	--color-text_dark: #b4b4b3;
+	--color-text-title_light: #282d34;
+	--color-text-title_dark: #eeeeee;
+	--color-border_light: #f2f3f5;
+	--color-border_dark: #222222;
+	--color-ring_light: #f2f3f5;
+	--color-ring_dark: #222222;
+	--color-fill_light: #222222;
+	--color-fill_dark: #f2f3f5;
+}
+
+body {
+	font-family: 'Space Grotesk Variable', 'sans-serif';
+}
+
+@keyframes emoji-hand {
+	0%,
+	100% {
+		transform: rotate(0);
+	}
+	25%,
+	75% {
+		transform: rotate(-20deg);
+	}
+	50% {
+		transform: rotate(0);
+	}
+}
+
+.animation-emoji-hand {
+	animation: emoji-hand 2s infinite;
+	display: inline-block;
+}
+
+pre[data-theme*=' '],
+code[data-theme*=' '],
+code[data-theme*=' '] span {
+	background-color: var(--shiki-light-bg);
+	color: var(--shiki-light);
+}
+
+.dark pre[data-theme*=' '],
+.dark code[data-theme*=' '],
+.dark code[data-theme*=' '] span {
+	background-color: var(--shiki-dark-bg);
+	color: var(--shiki-dark);
+}
+
+code[data-line-numbers] {
+	counter-reset: line;
+}
+
+code[data-line-numbers] > [data-line]::before {
+	counter-increment: line;
+	content: counter(line);
+
+	display: inline-block;
+	width: 0.75rem;
+	margin-right: 2rem;
+	text-align: right;
+	color: gray;
+}

@@ -1,0 +1,14 @@
+---
+import { type ITechnology } from '@/constants/about/skills'
+
+interface Props {
+	technology: ITechnology
+}
+
+const { technology } = Astro.props
+---
+
+<li class="flex flex-col items-center justify-center rounded-2xl">
+	<technology.icon class="mb-2 size-12" />
+	<span class="text-center text-sm">{technology.name}</span>
+</li>

@@ -1,0 +1,29 @@
+---
+import type { CollectionEntry } from 'astro:content'
+
+import ArticlesItem from '@/components/blog/ArticlesItem.astro'
+
+interface Props {
+	articles: Array<CollectionEntry<'blog'>>
+}
+
+const { articles } = Astro.props
+
+const articlesYears = Object.groupBy(articles, (article) => {
+	return article.data.publishedAt.getFullYear().toString()
+});
+
+const years = Object.keys(articlesYears).sort((a, b) => parseInt(b) - parseInt(a))
+---
+{
+	years.map((year) => (
+		<h2 class="mb-6 text-2xl font-bold sm:text-3xl text-text-title_light dark:text-text-title_dark">{year}</h2>
+		<ul class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+			{
+				articlesYears[year]?.map((article) => (
+					<ArticlesItem article={article} />
+				))
+			}
+		</ul>
+	))
+}

@@ -1,0 +1,22 @@
+---
+import type { CollectionEntry } from 'astro:content'
+
+import FormattedDate from '@/components/FormattedDate.astro'
+
+interface Props {
+	article: CollectionEntry<'blog'>
+}
+
+const { article } = Astro.props
+---
+
+{
+	article.data.updatedAt && (
+		<div class="flex flex-row rounded-md border border-yellow-500 bg-yellow-600/20 px-4 py-2">
+			<p class="mr-1.5 font-semibold text-white">Última actualización:</p>
+			<p class="text-white">
+				<FormattedDate date={article.data.updatedAt} />
+			</p>
+		</div>
+	)
+}

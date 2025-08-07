@@ -1,0 +1,41 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content'
+
+import Layout from '@/layouts/Layout.astro'
+
+import ArticleDetails from '@/components/blog/article/ArticleDetails.astro'
+import ArticleAlerts from '@/components/blog/article/ArticleAlerts.astro'
+
+export async function getStaticPaths() {
+	const articles = (await getCollection('blog')).filter((article) => article.data.state == 'published')
+	return articles.map((article) => ({
+		params: { slug: article.id },
+		props: { article },
+	}))
+}
+
+interface Props {
+	article: CollectionEntry<'blog'>
+}
+
+const { article } = Astro.props
+const { title, description, publishedAt } = article.data
+
+const { Content } = await render(article)
+---
+
+<Layout
+	title={title}
+	description={description}
+	openGraph={{ title: title, description: description, image: { url: `/blog/${article.id}/og.png` }, article: { publishedTime: publishedAt } }}
+>
+	<article class="flex flex-col gap-y-6">
+		<ArticleDetails article={article} />
+		<ArticleAlerts article={article} />
+		<section
+			class="prose prose-img:rounded-lg prose-img:border-2 prose-pre:border-2 prose-pre:border-border_light dark:prose-pre:border-border_dark prose-img:border-border_light dark:prose-img:border-border_dark dark:prose-invert mb-8 max-w-none"
+		>
+			<Content />
+		</section>
+	</article>
+</Layout>

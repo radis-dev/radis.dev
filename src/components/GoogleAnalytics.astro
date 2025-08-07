@@ -1,0 +1,21 @@
+{
+	import.meta.env.PROD && (
+		<script is:inline type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-1R7MZS4FE6"></script>
+		<script is:inline type="text/partytown">
+			window.dataLayer = window.dataLayer || []
+			function gtag() {
+				dataLayer.push(arguments)
+			}
+			gtag('js', new Date())
+
+			gtag("consent", "default", {
+				ad_storage: "denied",
+				ad_user_data: "denied",
+				ad_personalization: "denied",
+				analytics_storage: "denied",
+			});
+
+			gtag('config', 'G-1R7MZS4FE6')
+		</script>
+	)
+}

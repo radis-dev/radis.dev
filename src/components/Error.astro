@@ -1,0 +1,23 @@
+---
+interface Props {
+	error: string
+	message: string
+	contextMessage: string
+}
+
+const { error, message, contextMessage } = Astro.props
+---
+
+<section class="my-auto flex flex-col items-center justify-center pb-8">
+	<h1 class="mb-4 text-8xl font-bold text-black md:text-9xl dark:text-white">{error}</h1>
+	<h2 class="mb-4 text-3xl font-medium tracking-tight md:text-4xl">{message}</h2>
+	<p class="mb-8 text-slate-700 dark:text-white">
+		{contextMessage}
+	</p>
+	<a
+		class="bg-bg_light dark:bg-bg_dark dark:hover:bg-bg_body_hover_dark hover:bg-bg_body_hover_light border-border_light dark:border-border_dark mx-auto w-64 rounded-md border-2 p-2 text-center sm:p-4"
+		href="/"
+	>
+		Volver al inicio
+	</a>
+</section>

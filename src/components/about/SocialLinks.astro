@@ -1,0 +1,16 @@
+---
+import { networks } from '@/constants/networks'
+---
+
+<ul class="flex flex-col gap-3 md:flex-row">
+	{
+		networks.map((network) => (
+			<li class="border-border_light dark:border-border_dark dark:bg-bg_dark bg-bg_light dark:hover:bg-bg_body_hover_dark hover:bg-bg_body_hover_light flex flex-1 flex-row justify-center gap-x-2 rounded-lg border-2 px-4 py-2 transition-colors duration-150">
+				<a class="flex flex-row items-center gap-x-2" href={network.url} target="_blank" rel="noopener noreferrer">
+					<network.icon class="fill-fill_light dark:fill-fill_dark size-4" />
+					<span>{network.name}</span>
+				</a>
+			</li>
+		))
+	}
+</ul>

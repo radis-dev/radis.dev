@@ -1,0 +1,30 @@
+---
+interface Props {
+	date: Date
+	format?: {
+		day?: Intl.DateTimeFormatOptions['day']
+		month?: Intl.DateTimeFormatOptions['month']
+		year?: Intl.DateTimeFormatOptions['year']
+	}
+}
+
+const { date, format } = Astro.props
+
+const hasValidFormat = format && (format.day || format.month || format.year)
+
+const formatOptions: Intl.DateTimeFormatOptions = !hasValidFormat
+	? {
+			day: 'numeric',
+			month: 'short',
+			year: 'numeric',
+		}
+	: {
+			...(format.day && { day: format.day }),
+			...(format.month && { month: format.month }),
+			...(format.year && { year: format.year }),
+		}
+---
+
+<time datetime={date.toISOString()}>
+	{date.toLocaleDateString('es', formatOptions)}
+</time>

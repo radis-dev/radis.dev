@@ -1,0 +1,37 @@
+---
+import { getEntry, render } from 'astro:content'
+
+import Layout from '@/layouts/Layout.astro'
+
+const title = 'RadisDev - Politica de privacidad'
+const description =
+	'¡Hola! Soy Raúl, desarrollador de software. Descubre contenido sobre desarrollo web, tecnología y más para alimentar tu curiosidad por la informática.'
+
+const documento = await getEntry('legal', 'politica-privacidad')
+if (!documento) {
+	return Astro.redirect('/404')
+}
+
+const { Content } = await render(documento)
+---
+
+<Layout
+	title={title}
+	description={description}
+	noindex={true}
+	nofollow={true}
+	openGraph={{
+		title: title,
+		description: description,
+		image: { url: '/og.png' },
+	}}
+>
+	<section>
+		<h1 class="text-text-title_light dark:text-text-title_dark mb-6 text-center text-4xl font-bold sm:mb-10">Politica de privacidad</h1>
+		<article
+			class="prose prose-img:rounded-lg prose-img:border-2 prose-pre:border-2 prose-pre:border-border_light dark:prose-pre:border-border_dark prose-img:border-border_light dark:prose-img:border-border_dark dark:prose-invert mb-8 max-w-none"
+		>
+			<Content />
+		</article>
+	</section>
+</Layout>

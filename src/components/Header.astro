@@ -1,0 +1,48 @@
+---
+import ThemeToggle from '@/components/ThemeToggle.astro'
+
+interface IOption {
+	name: string
+	url: string
+}
+
+const { pathname } = Astro.url
+
+const options: IOption[] = [
+	{
+		name: 'Inicio',
+		url: '/',
+	},
+	{
+		name: 'Sobre mi',
+		url: '/sobre-mi',
+	},
+	{
+		name: 'Blog',
+		url: '/blog',
+	},
+]
+---
+
+<header class="flex flex-row justify-between">
+	<nav>
+		<ul class="flex w-full gap-4">
+			{
+				options.map(({ name, url }) => {
+					const isActive: boolean = pathname === url || (url !== '/' && pathname.startsWith(url))
+					return (
+						<li>
+							<a
+								href={url}
+								class={`inline-block ${isActive ? 'font-bold text-slate-600 dark:text-slate-100' : 'dark:border-border_dark border-border_light border-b-2 pb-0.5 transition-colors duration-200 hover:border-current'}`}
+							>
+								{name}
+							</a>
+						</li>
+					)
+				})
+			}
+		</ul>
+	</nav>
+	<ThemeToggle />
+</header>

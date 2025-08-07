@@ -1,0 +1,12 @@
+---
+import { trainings } from '@/constants/about/trainings'
+import TrainingItem from '@/components/about/training/TrainingItem.astro'
+---
+
+<ol>
+	{
+		trainings.map(({ title, college, description, startDate, endDate }) => (
+			<TrainingItem title={title} college={college} description={description} startDate={startDate} endDate={endDate} />
+		))
+	}
+</ol>

@@ -1,0 +1,24 @@
+---
+import { experiences, type IExperience } from '@/constants/about/experiences'
+
+import ExperienceItem from '@/components/about/experience/ExperienceItem.astro'
+
+const orderedExperiences = [...experiences].sort((a: IExperience, b: IExperience) => {
+	// Si ninguna experiencia tiene fecha de finalización, se ordenan por fecha de inicio
+	if (!a.endDate && !b.endDate) return b.startDate.getTime() - a.startDate.getTime()
+
+	// Si una experiencia no tiene fecha de finalización, se coloca antes en la lista
+	if (!a.endDate || !b.endDate) return !a.endDate ? -1 : 1
+
+	// Si ambas experiencias tienen fecha de finalización, se comparan usando getEndDate
+	return b.endDate.getTime() - a.endDate.getTime()
+})
+---
+
+<ol>
+	{
+		orderedExperiences.map(({ title, company, description, location, startDate, endDate }) => (
+			<ExperienceItem title={title} company={company} description={description} startDate={startDate} endDate={endDate} location={location} />
+		))
+	}
+</ol>
