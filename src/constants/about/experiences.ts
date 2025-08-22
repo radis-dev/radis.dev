@@ -30,7 +30,7 @@ export const experiences: IExperience[] = [
 		endDate: new Date('2019-06-01'),
 	},
 	{
-		title: 'Software Tester',
+		title: 'QA Tester',
 		company: 'We do the best',
 		description:
 			'Garantizaba la calidad del software mediante pruebas exhaustivas antes y después de las actualizaciones, asegurando una experiencia sin fallos para el usuario.',
@@ -43,7 +43,7 @@ export const experiences: IExperience[] = [
 		endDate: new Date('2022-07-01'),
 	},
 	{
-		title: 'Desarrollador de software',
+		title: 'Desarrollador Full Stack',
 		company: 'Fundación Esplai',
 		description:
 			'Desarrolle una plataforma para el despliegue de laboratorios de prueba de WordPress y Moodle, dirigida a entidades del tercer sector. Posteriormente, me encargué de la recopilación, organización, transformación y análisis de los datos generados por los usuarios en dichos laboratorios, con el objetivo de elaborar un informe sobre la viabilidad de implementación de estos sistemas.',

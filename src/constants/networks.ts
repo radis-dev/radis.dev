@@ -1,7 +1,7 @@
 import GmailIcon from '@/components/icons/Gmail.svg'
 import GithubIcon from '@/components/icons/Github.svg'
 import LinkedInIcon from '@/components/icons/LinkedIn.svg'
-import XIcon from '@/components/icons/X.svg'
+import BookIcon from '@/components/icons/Book.svg'
 
 export interface INetworks {
 	name: string
@@ -26,8 +26,8 @@ export const networks: INetworks[] = [
 		url: 'https://linkedin.com/in/radisdev',
 	},
 	{
-		name: 'X',
-		icon: XIcon,
-		url: 'https://x.com/radisdev',
+		name: 'CV',
+		icon: BookIcon,
+		url: 'https://docs.google.com/document/d/1dPkddUmqjjO3QFV8ry9AJm_UlyaKFc7fl_VnSWD96B0',
 	},
 ]
