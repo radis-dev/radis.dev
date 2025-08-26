@@ -28,6 +28,6 @@ export const networks: INetworks[] = [
 	{
 		name: 'CV',
 		icon: BookIcon,
-		url: 'https://docs.google.com/document/d/1dPkddUmqjjO3QFV8ry9AJm_UlyaKFc7fl_VnSWD96B0',
+		url: 'https://docs.google.com/document/d/1pZQT1Cx2Iw1wvVkgeXlAcgoEbbPvJzjcE790XZaEyuA',
 	},
 ]
