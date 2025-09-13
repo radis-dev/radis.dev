@@ -20,7 +20,7 @@ export const GET: APIRoute = async () => {
 		},
 		title: 'RadisDev - Blog',
 		description:
-			'¡Hola! Soy Raúl, aunque muchos me conocen como RadisDev. Descubre contenido sobre desarrollo web, tecnología y más para alimentar tu curiosidad por la informática.',
+			'¡Hola! Soy Raúl, desarrollador de full stack. Descubre contenido sobre desarrollo web, tecnología y más para alimentar tu curiosidad por la informática.',
 		site: import.meta.env.SITE,
 		customData: customDataChannel,
 		items: articles.map((article) => {

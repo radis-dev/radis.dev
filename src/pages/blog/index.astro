@@ -6,7 +6,7 @@ import Articles from '@/components/blog/Articles.astro'
 
 const title = 'Blog - RadisDev'
 const description =
-	'¡Hola! Soy Raúl, desarrollador de software. Descubre contenido sobre desarrollo web, tecnología y más para alimentar tu curiosidad por la informática.'
+	'¡Hola! Soy Raúl, desarrollador de full stack. Descubre contenido sobre desarrollo web, tecnología y más para alimentar tu curiosidad por la informática.'
 
 const articles = (await getCollection('blog')).filter((article) => article.data.state === 'published')
 ---
