@@ -40,12 +40,13 @@ const tags: Record<string, ITag> = {
 
 export const projects: IProject[] = [
 	{
-		title: 'Portafolio',
-		description: 'Mi espacio digital donde comparto mis experiencias y progresos diarios en el campo de la tecnología.',
+		title: 'radis.dev',
+		description:
+			'Mi espacio digital donde comparto mi recorrido en el sector tecnológico, mis avances y los proyectos que impulsan mi evolución y mi pasión por innovar.',
 		tags: [tags.astro, tags.tailwind, tags.typescript],
 		image: {
 			url: '/images/about/projects/portafolio.webp',
-			alt: 'Captura de pantalla del sitio web personal de Raul.',
+			alt: 'Captura de pantalla del sitio web radis.dev',
 		},
 	},
 ]

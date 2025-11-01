@@ -16,7 +16,7 @@ import SocialLinks from '@/components/about/SocialLinks.astro'
 
 const title = 'Sobre mi - RadisDev'
 const description =
-	'¡Hola! Soy Raúl, desarrollador de full stack. Descubre contenido sobre desarrollo web, tecnología y más para alimentar tu curiosidad por la informática.'
+	'¡Hola! Soy Raúl, Desarrollador Backend Junior. Descubre contenido sobre desarrollo web, tecnología y más para alimentar tu curiosidad por la informática.'
 ---
 
 <Layout
@@ -30,18 +30,39 @@ const description =
 >
 	<h1 class="text-text-title_light dark:text-text-title_dark mb-6 text-4xl font-bold sm:mb-10 sm:text-5xl">
 		¡Hola!
-		<span class="animation-emoji-hand -ml-1">👋</span>
+		<span class="animation-emoji-hand -ml-1" aria-hidden="true">👋</span>
 	</h1>
 	<section class="flex flex-col items-center justify-center gap-8 md:flex-row">
-		<div class="order-2 md:order-1 [&>p]:mb-6 [&>p]:text-justify [&>p>strong]:font-normal [&>p>strong]:text-black dark:[&>p>strong]:text-white">
-			<p>Soy Raúl, desarrollador full stack con pasión por la tecnología y el aprendizaje constante.</p>
+		<div class="order-2 space-y-6 md:order-1 [&>p]:text-justify [&>p>strong]:font-normal [&>p>strong]:text-black dark:[&>p>strong]:text-white">
 			<p>
-				Desde muy pequeñito, la programación se convirtió en mi gran pasión. Recuerdo con emoción mis primeros pasos en el mundo de la programación,
-				<strong>trasteando con C++ en un Arduino </strong> que mi padre me regaló.
+				Soy <strong>Raúl</strong>, <strong>Desarrollador Backend Junior</strong> y mi lema es simple:
+				<strong>"Más que código, transformo ideas en soluciones eficientes."</strong>
 			</p>
 			<p>
-				Una de las cosas que más me anima es aprender. ¡Es como si mi sed de conocimiento fuera insaciable! Me lancé a
-				<strong>ser autodidacta, devorando libros y tutoriales </strong> que encontraba en mi camino.
+				Lo que empezó como una curiosidad se ha convertido en mi profesión. Hoy tengo un enfoque claro en
+				<strong>tres áreas</strong> donde disfruto <strong>creando valor real a través de la tecnología:</strong>
+			</p>
+			<ul class="grid grid-cols-3 gap-6">
+				<li>
+					<h3 class="flex items-center justify-center gap-2 font-semibold text-white">
+						<span class="text-xl" aria-hidden="true">🧩</span> Desarrollo Backend
+					</h3>
+				</li>
+
+				<li>
+					<h3 class="flex items-center justify-center gap-2 font-semibold text-white">
+						<span class="text-xl" aria-hidden="true">📊</span> Análisis de Datos
+					</h3>
+				</li>
+				<li>
+					<h3 class="flex items-center justify-center gap-2 font-semibold text-white">
+						<span class="text-xl" aria-hidden="true">☁️</span> Cloud & DevOps
+					</h3>
+				</li>
+			</ul>
+			<p>
+				Y siempre estoy abierto a conversar sobre
+				<strong>nuevos desafíos tecnológicos, proyectos innovadores o ideas que transformar el código en valor real</strong>.
 			</p>
 			<SocialLinks />
 		</div>
@@ -49,7 +70,7 @@ const description =
 			src="/images/about/me.webp"
 			width={958}
 			height={1430}
-			alt="Fotografia de un joven, que es Raul, apoyado sobre una mesa en un ambiente con luces de neón moradas y azules. Fondo futurista con señales y pantallas iluminadas."
+			alt="Fotografía de un joven de pie al aire libre, rodeado de vegetación y árboles, que mira a la cámara con una ligera sonrisa. Lleva puesta una camiseta polo color lila y el fondo muestra un entorno natural y soleado."
 			class="border-border_light dark:border-border_dark order-1 aspect-square h-full w-64 rounded-2xl border-2 object-cover md:order-2 lg:w-64"
 		/>
 	</section>

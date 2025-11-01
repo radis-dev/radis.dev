@@ -17,10 +17,9 @@ export interface IExperience {
 
 export const experiences: IExperience[] = [
 	{
-		title: 'Técnico de TIC',
+		title: 'Técnico IT',
 		company: 'Creática ONG',
-		description:
-			'Contribuí al impacto social de la organización en el ámbito educativo al apoyar proyectos tecnológicos, con el objetivo de mitigar el fracaso escolar.',
+		description: '',
 		location: {
 			country: 'España',
 			city: 'Madrid',
@@ -32,8 +31,7 @@ export const experiences: IExperience[] = [
 	{
 		title: 'QA Tester',
 		company: 'We do the best',
-		description:
-			'Garantizaba la calidad del software mediante pruebas exhaustivas antes y después de las actualizaciones, asegurando una experiencia sin fallos para el usuario.',
+		description: '',
 		location: {
 			country: 'España',
 			city: 'Madrid',
@@ -43,10 +41,9 @@ export const experiences: IExperience[] = [
 		endDate: new Date('2022-07-01'),
 	},
 	{
-		title: 'Desarrollador Full Stack',
+		title: 'Desarrollador Backend',
 		company: 'Fundación Esplai',
-		description:
-			'Desarrolle una plataforma para el despliegue de laboratorios de prueba de WordPress y Moodle, dirigida a entidades del tercer sector. Posteriormente, me encargué de la recopilación, organización, transformación y análisis de los datos generados por los usuarios en dichos laboratorios, con el objetivo de elaborar un informe sobre la viabilidad de implementación de estos sistemas.',
+		description: '',
 		location: {
 			country: 'España',
 			city: 'Madrid',
@@ -54,5 +51,16 @@ export const experiences: IExperience[] = [
 		},
 		startDate: new Date('2025-03-01'),
 		endDate: new Date('2025-06-01'),
+	},
+	{
+		title: 'Técnico IT',
+		company: 'Fundación Esplai',
+		description: '',
+		location: {
+			country: 'España',
+			city: 'Madrid',
+			type: 'Híbrido',
+		},
+		startDate: new Date('2025-09-01'),
 	},
 ]

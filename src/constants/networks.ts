@@ -28,6 +28,6 @@ export const networks: INetworks[] = [
 	{
 		name: 'CV',
 		icon: BookIcon,
-		url: 'https://docs.google.com/document/d/1pZQT1Cx2Iw1wvVkgeXlAcgoEbbPvJzjcE790XZaEyuA',
+		url: '/Raul_De_Diego_Diaz_CV.pdf',
 	},
 ]
